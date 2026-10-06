@@ -1,0 +1,17 @@
+# Cloudflare Pages — _redirects file
+#
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# ── SPA Fallback ──────────────────────────────────────────────────────────────
+# All unmatched routes return index.html with HTTP 200 (not 301/302).
+# This allows React Router to handle client-side navigation.
+# Without this, direct URL access (e.g. /about) returns a 404 from Cloudflare.
+#
+# IMPORTANT: This must be the LAST rule in the file.
+# More specific redirects (e.g., www → apex) go ABOVE this line.
+
+# ── www → apex redirect ───────────────────────────────────────────────────────
+https://www.alaman.site/* https://alaman.site/:splat 301
+
+# ── SPA fallback (must be last) ───────────────────────────────────────────────
+/*  /index.html  200
